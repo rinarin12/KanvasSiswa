@@ -1,14 +1,11 @@
-/* Styling Dasar */
 body {
   font-family: Arial, sans-serif;
-  
-  /* DIUBAH: Latar belakang gradasi pink ke biru */
+
+  /* Ini bagian penting untuk gradasi */
   background: linear-gradient(to bottom, #FFB6C1, #AEC6CF);
-  
+
   margin: 0;
   padding: 20px;
-  
-  /* DITAMBAH: agar gradasi mengisi seluruh halaman */
   min-height: 100vh;
   box-sizing: border-box; 
 }
