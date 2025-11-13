@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KanvasSiswa - Galeri & Pojok Belajar</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>🎨 KanvasSiswa</h1>
+      <p>Karyaku, Jejak Belajarku untuk Indonesia Emas</p>
+    </header>
+
+    <nav>
+      <button id="nav-galeri" class="nav-button active">Galeri Karya</button>
+      <button id="nav-belajar" class="nav-button">Pojok Belajar</button>
+    </nav>
+
+    <section id="page-galeri" class="page active">
+      <h2>Unggah Karyamu</h2>
+      <div class="input-area">
+        <label for="inputGambar">1. Pilih Foto Karyamu</label>
+        <input type="file" id="inputGambar" accept="image/*">
+        
+        <div id="area-preview">
+          <img id="previewGambar" src="#" alt="Preview Karyamu" style="display:none;">
+        </div>
+
+        <label for="inputRefleksi">2. Tulis Refleksi/Deskripsi</label>
+        <textarea id="inputRefleksi" placeholder="Tulis deskripsi karyamu di sini. Apa yang kamu pelajari saat membuatnya?"></textarea>
+        
+        <button id="tombolTambahKarya">Publikasikan Karya</button>
+      </div>
+
+      <hr>
+      <h2>Karya Teman</h2>
+      <div id="daftarKarya" class="galeri-grid">
+        </div>
+    </section>
+
+    <section id="page-belajar" class="page">
+      <h2>Pojok Belajar</h2>
+      <p>Temukan sumber belajar keren di sini!</p>
+      
+      <ul class="link-belajar">
+        <li>
+          <a href="https://belajar.kemdikbud.go.id/" target="_blank">
+            <strong>Rumah Belajar</strong> - Portal Belajar Resmi Kemdikbud
+          </a>
+        </li>
+        <li>
+          <a href="https://id.khanacademy.org/" target="_blank">
+            <strong>Khan Academy</strong> - Belajar Matematika, Sains (GratIS)
+          </a>
+        </li>
+         <li>
+          <a href="https://www.zenius.net/" target="_blank">
+            <strong>Zenius</strong> - Video Materi Pelajaran SMA/SMK
+          </a>
+        </li>
+        <li>
+          <a href="https://www.w3schools.com" target="_blank">
+            <strong>W3Schools</strong> - (SMK) Belajar Koding
+          </a>
+        </li>
+        <li>
+          <a href="https://www.canva.com/id_id/belajar/" target="_blank">
+            <strong>Canva</strong> - (Umum) Belajar Desain untuk Presentasi/Poster
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
