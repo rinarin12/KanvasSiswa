@@ -1,35 +1,50 @@
-/* Styling Dasar */
+/* --- Import Font Lucu (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* --- Styling Dasar --- */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f7f6;
+  /* DIUBAH: Font jadi bulat & lucu */
+  font-family: 'Nunito', sans-serif;
+  
+  /* DIUBAH: Background jadi warna krem */
+  background-color: #FFFBEB;
+  
   margin: 0;
   padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box; 
+  
+  /* DIUBAH: Warna teks jadi coklat tua */
+  color: #5D4037;
 }
 
 .container {
   max-width: 800px;
   margin: 20px auto;
   background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+  /* DIUBAH: Sudut lebih bulat, border tebal, dan ada bayangan */
+  border-radius: 20px;
+  border: 3px solid #FFA1A1; /* Pink */
+  box-shadow: 8px 8px 0px #FFA1A1; /* Bayangan pink */
+  
   padding: 30px;
 }
 
 header {
   text-align: center;
-  /* DIUBAH: dari biru tua menjadi soft blue */
-  border-bottom: 2px solid #AEC6CF; 
+  /* DIUBAH: Border tebal */
+  border-bottom: 3px solid #FFA1A1; 
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
 header h1 {
   margin: 0;
-  /* DIUBAH: dari biru tua menjadi biru yang lebih soft */
-  color: #607D8B;
+  color: #5D4037;
 }
 
-/* Navigasi / Tab */
+/* --- Navigasi / Tab --- */
 nav {
   display: flex;
   justify-content: center;
@@ -39,28 +54,35 @@ nav {
 .nav-button {
   padding: 10px 20px;
   font-size: 16px;
-  /* DIUBAH: dari biru tua menjadi soft blue */
-  border: 1px solid #AEC6CF;
-  background-color: #ffffff;
-  color: #AEC6CF;
-  border-radius: 5px;
+  font-weight: bold;
+  
+  /* DIUBAH: Warna tombol navigasi jadi mint */
+  background-color: #C6EBC5;
+  color: #5D4037;
+  border: 3px solid #5D4037;
+  border-radius: 15px;
+  box-shadow: 4px 4px 0px #5D4037; /* Bayangan */
+  
   cursor: pointer;
+  transition: all 0.1s;
+}
+.nav-button:hover {
+  background-color: #A6E3E9; /* Warna biru muda saat disentuh */
 }
 .nav-button.active {
-  /* DIUBAH: dari biru tua menjadi soft blue */
-  background-color: #AEC6CF;
-  color: white;
+  /* DIUBAH: Tombol aktif jadi pink */
+  background-color: #FFA1A1;
+  color: #5D4037;
+  /* Efek 'tertekan' */
+  box-shadow: 0px 0px 0px #5D4037;
+  transform: translate(4px, 4px);
 }
 
-/* Logika Halaman (Sembunyikan yang tidak aktif) */
-.page {
-  display: none;
-}
-.page.active {
-  display: block;
-}
+/* --- Halaman (Sama) --- */
+.page { display: none; }
+.page.active { display: block; }
 
-/* Area Input Form */
+/* --- Area Input Form --- */
 .input-area {
   display: flex;
   flex-direction: column;
@@ -68,68 +90,74 @@ nav {
 }
 .input-area label {
   font-weight: bold;
-  color: #333;
+  color: #5D4037;
   margin-top: 10px;
 }
 .input-area input[type="file"],
 .input-area textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  /* DIUBAH: Border lebih tebal & bulat */
+  border: 2px solid #AEC6CF; /* Biru soft */
+  border-radius: 15px;
   font-size: 15px;
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 .input-area textarea {
   min-height: 100px;
   resize: vertical;
 }
 
-/* Preview Gambar */
-#area-preview {
-  width: 100%;
-  text-align: center;
-}
+/* --- Preview Gambar (Sama) --- */
+#area-preview { width: 100%; text-align: center; }
 #previewGambar {
   max-width: 100%;
   max-height: 300px;
   border-radius: 8px;
-  border: 1px dashed #ddd;
+  border: 2px dashed #ddd;
   margin-top: 10px;
   object-fit: cover;
 }
 
+/* --- Tombol Publikasi --- */
 #tombolTambahKarya {
   padding: 12px 20px;
-  /* DIUBAH: dari hijau menjadi soft pink */
-  background-color: #FFB6C1;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  /* DIUBAH: Warna pink cerah */
+  background-color: #FFA1A1;
+  color: #5D4037; /* Teks coklat */
+  border: 3px solid #5D4037;
+  border-radius: 15px;
+  box-shadow: 4px 4px 0px #5D4037; /* Bayangan */
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   margin-top: 15px;
-  transition: background-color 0.2s;
+  transition: all 0.1s;
 }
 #tombolTambahKarya:hover {
-  /* DIUBAH: menjadi pink yang lebih gelap */
-  background-color: #DB7093;
+  background-color: #FFB6C1; /* Pink lebih muda */
+}
+#tombolTambahKarya:active {
+  /* Efek 'tertekan' */
+  box-shadow: 0px 0px 0px #5D4037;
+  transform: translate(4px, 4px);
 }
 
-/* Grid Galeri */
+/* --- Grid Galeri (Sama) --- */
 .galeri-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* Kartu Karya */
+/* --- Kartu Karya --- */
 .kartu-karya {
-  background-color: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  /* DIUBAH: Background kuning muda */
+  background-color: #FFF4D2;
+  border: 3px solid #FFA1A1; /* Border pink */
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px #FFA1A1; /* Bayangan pink */
   overflow: hidden;
   position: relative;
 }
@@ -143,7 +171,7 @@ nav {
   padding: 15px;
 }
 .kartu-karya .konten p {
-  color: #555;
+  color: #5D4037; /* Teks coklat */
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
@@ -152,10 +180,9 @@ nav {
   position: absolute;
   top: 10px;
   right: 10px;
-  /* DIBIARKAN merah untuk usability */
-  background-color: rgba(220, 53, 69, 0.8); 
-  color: white;
-  border: none;
+  background-color: #FFA1A1; /* Pink */
+  color: #5D4037; /* Teks coklat */
+  border: 2px solid #5D4037;
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -163,7 +190,7 @@ nav {
   font-weight: bold;
 }
 
-/* Halaman Pojok Belajar */
+/* --- Halaman Pojok Belajar --- */
 .link-belajar {
   list-style-type: none;
   padding: 0;
@@ -171,20 +198,24 @@ nav {
 .link-belajar li a {
   display: block;
   padding: 15px;
-  margin-bottom: 10px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  margin-bottom: 15px;
+  /* DIUBAH: Tampilan seperti kartu */
+  background-color: #FFF4D2; /* Kuning muda */
+  border: 3px solid #AEC6CF; /* Biru soft */
+  border-radius: 15px;
+  box-shadow: 4px 4px 0px #AEC6CF; /* Bayangan biru */
   text-decoration: none;
-  color: #333;
-  transition: background-color 0.2s;
+  color: #5D4037;
+  transition: all 0.1s;
 }
 .link-belajar li a:hover {
-  background-color: #e9ecef;
+  background-color: #fff;
+  /* Efek 'terangkat' */
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #AEC6CF;
 }
 .link-belajar li a strong {
-  /* DIUBAH: dari biru tua menjadi soft blue */
-  color: #AEC6CF;
+  color: #5D4037;
   display: block;
   font-size: 18px;
 }
