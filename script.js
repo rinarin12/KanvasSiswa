@@ -1,119 +1,162 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Menunggu sampai semua elemen HTML selesai dimuat
+document.addEventListener('DOMContentLoaded', () => {
 
-  // --- ELEMEN NAVIGASI & HALAMAN ---
+  // --- 1. AMBIL SEMUA ELEMEN YANG DIBUTUHKAN ---
   const navGaleri = document.getElementById('nav-galeri');
   const navBelajar = document.getElementById('nav-belajar');
   const pageGaleri = document.getElementById('page-galeri');
   const pageBelajar = document.getElementById('page-belajar');
 
-  // --- ELEMEN FORM GALERI ---
   const inputGambar = document.getElementById('inputGambar');
   const previewGambar = document.getElementById('previewGambar');
   const inputRefleksi = document.getElementById('inputRefleksi');
-  const tombolTambahKarya = document.getElementById('tombolTambahKarya');
+  const tombolTambah = document.getElementById('tombolTambahKarya');
   const daftarKarya = document.getElementById('daftarKarya');
-  
-  // Variabel untuk menyimpan data gambar (dalam format Base64)
-  let gambarTerpilih = null;
 
-  // --- LOGIKA 1: NAVIGASI PINDAH HALAMAN ---
+  // Variabel untuk menyimpan data URL gambar yang di-preview
+  let dataGambarUrl = null;
+  // Kunci untuk localStorage
+  const KUNCI_STORAGE = 'kanvasSiswaKarya';
 
-  function tampilkanHalaman(pageId) {
-    // Sembunyikan semua halaman
-    document.querySelectorAll('.page').forEach(page => {
-      page.classList.remove('active');
-    });
-    // Hapus 'active' dari semua tombol nav
-    document.querySelectorAll('.nav-button').forEach(btn => {
-      btn.classList.remove('active');
-    });
+  // --- 2. LOGIKA NAVIGASI (TAB) ---
+  navGaleri.addEventListener('click', () => {
+    pageGaleri.classList.add('active');
+    pageBelajar.classList.remove('active');
+    navGaleri.classList.add('active');
+    navBelajar.classList.remove('active');
+  });
 
-    // Tampilkan halaman dan tombol yang dipilih
-    if (pageId === 'galeri') {
-      pageGaleri.classList.add('active');
-      navGaleri.classList.add('active');
-    } else if (pageId === 'belajar') {
-      pageBelajar.classList.add('active');
-      navBelajar.classList.add('active');
-    }
-  }
+  navBelajar.addEventListener('click', () => {
+    pageBelajar.classList.add('active');
+    pageGaleri.classList.remove('active');
+    navBelajar.classList.add('active');
+    navGaleri.classList.remove('active');
+  });
 
-  // Atur event listener untuk tombol navigasi
-  navGaleri.addEventListener('click', () => tampilkanHalaman('galeri'));
-  navBelajar.addEventListener('click', () => tampilkanHalaman('belajar'));
-
-  
-  // --- LOGIKA 2: PREVIEW GAMBAR ---
-  
-  inputGambar.addEventListener('change', function(event) {
-    // Ambil file yang dipilih
+  // --- 3. LOGIKA PREVIEW GAMBAR ---
+  inputGambar.addEventListener('change', (event) => {
     const file = event.target.files[0];
-    
     if (file) {
-      // Buat 'FileReader' untuk membaca file
       const reader = new FileReader();
       
-      // Saat 'reader' selesai membaca...
-      reader.onload = function(e) {
-        // Tampilkan gambar di 'preview'
-        previewGambar.src = e.target.result;
+      // Saat file selesai dibaca
+      reader.onload = (e) => {
+        const url = e.target.result;
+        previewGambar.src = url;
         previewGambar.style.display = 'block';
-        
-        // Simpan data gambar (e.target.result) ke variabel
-        gambarTerpilih = e.target.result;
-      }
-      
-      // Perintahkan 'reader' untuk membaca file sebagai Data URL (Base64)
+        // Simpan data URL gambar untuk disimpan nanti
+        dataGambarUrl = url;
+      };
+
+      // Baca file sebagai Data URL (teks base64)
       reader.readAsDataURL(file);
     }
   });
 
-  
-  // --- LOGIKA 3: TAMBAH KARYA KE GALERI ---
+  // --- 4. FUNGSI UNTUK MENGAMBIL DATA DARI LOCALSTORAGE ---
+  function ambilDataKarya() {
+    const dataString = localStorage.getItem(KUNCI_STORAGE);
+    // Jika ada data, ubah dari string JSON ke array. Jika tidak, kembalikan array kosong.
+    return dataString ? JSON.parse(dataString) : [];
+  }
 
-  tombolTambahKarya.addEventListener('click', function() {
-    const teksRefleksi = inputRefleksi.value;
+  // --- 5. FUNGSI UNTUK MENAMPILKAN SEMUA KARYA KE LAYAR ---
+  function tampilkanSemuaKarya() {
+    // Kosongkan galeri sebelum diisi ulang
+    daftarKarya.innerHTML = '';
+    
+    const semuaKarya = ambilDataKarya();
 
-    // Validasi: Pastikan gambar dan refleksi sudah diisi
-    if (!gambarTerpilih) {
-      alert('Harap pilih gambar terlebih dahulu!');
+    // Loop setiap data karya dan buat elemennya
+    // Kita pakai forEach.reverse() agar karya terbaru muncul di paling atas
+    semuaKarya.reverse().forEach((karya, indexAsli) => {
+      // Hitung index terbalik (karena array-nya di-reverse) untuk kepentingan Hapus
+      const index = semuaKarya.length - 1 - indexAsli;
+      
+      buatElemenKarya(karya.gambarUrl, karya.refleksi, index);
+    });
+  }
+
+  // --- 6. FUNGSI UNTUK MEMBUAT SATU KARTU KARYA ---
+  function buatElemenKarya(gambarUrl, refleksi, index) {
+    const itemKarya = document.createElement('div');
+    itemKarya.classList.add('kartu-karya'); // Beri kelas untuk styling CSS
+
+    const img = document.createElement('img');
+    img.src = gambarUrl;
+    img.alt = 'Karya Siswa';
+
+    const p = document.createElement('p');
+    p.textContent = refleksi;
+
+    const tombolHapus = document.createElement('button');
+    tombolHapus.textContent = 'Hapus Karya';
+    tombolHapus.classList.add('tombol-hapus'); // Beri kelas untuk styling CSS
+    
+    // Tambahkan event listener untuk menghapus karya
+    tombolHapus.onclick = () => {
+      hapusKarya(index);
+    };
+
+    itemKarya.appendChild(img);
+    itemKarya.appendChild(p);
+    itemKarya.appendChild(tombolHapus);
+    
+    daftarKarya.appendChild(itemKarya);
+  }
+
+  // --- 7. FUNGSI UNTUK MENYIMPAN KARYA BARU ---
+  tombolTambah.addEventListener('click', () => {
+    const refleksi = inputRefleksi.value;
+
+    // Validasi
+    if (!dataGambarUrl || !refleksi) {
+      alert('Harap pilih gambar DAN isi refleksi terlebih dahulu.');
       return;
     }
-    if (teksRefleksi.trim() === '') {
-      alert('Harap isi refleksi/deskripsi karyamu!');
-      inputRefleksi.focus();
-      return;
-    }
 
-    // Buat elemen 'div' baru untuk kartu karya
-    const kartuKarya = document.createElement('div');
-    kartuKarya.className = 'kartu-karya';
-
-    // Isi HTML di dalam kartu
-    kartuKarya.innerHTML = `
-      <img src="${gambarTerpilih}" alt="Karya Siswa">
-      <div class="konten">
-        <p>${teksRefleksi}</p>
-      </div>
-      <button class="tombol-hapus-karya">X</button>
-    `;
-
-    // Tambahkan fungsi ke tombol hapus
-    kartuKarya.querySelector('.tombol-hapus-karya').addEventListener('click', function() {
-      daftarKarya.removeChild(kartuKarya);
+    // Ambil data lama
+    const semuaKarya = ambilDataKarya();
+    
+    // Tambahkan data baru
+    semuaKarya.push({
+      gambarUrl: dataGambarUrl,
+      refleksi: refleksi
     });
 
-    // Masukkan kartu baru ke awal galeri
-    daftarKarya.prepend(kartuKarya);
+    // Simpan kembali ke localStorage (ubah array ke string JSON)
+    localStorage.setItem(KUNCI_STORAGE, JSON.stringify(semuaKarya));
 
-    // Reset form setelah berhasil
+    // Reset form
+    inputGambar.value = '';
     inputRefleksi.value = '';
-    inputGambar.value = ''; // Kosongkan input file
-    previewGambar.style.display = 'none'; // Sembunyikan preview
+    previewGambar.style.display = 'none';
     previewGambar.src = '#';
-    gambarTerpilih = null;
+    dataGambarUrl = null;
+
+    // Perbarui tampilan galeri
+    tampilkanSemuaKarya();
   });
 
-  // Set halaman awal yang aktif
-  tampilkanHalaman('galeri');
+  // --- 8. FUNGSI UNTUK MENGHAPUS KARYA ---
+  function hapusKarya(index) {
+    if (!confirm('Apakah Anda yakin ingin menghapus karya ini?')) {
+      return; // Batalkan jika pengguna menekan 'Cancel'
+    }
+
+    const semuaKarya = ambilDataKarya();
+    
+    // Hapus 1 item pada 'index' yang dipilih
+    semuaKarya.splice(index, 1);
+
+    // Simpan kembali array yang sudah diubah ke localStorage
+    localStorage.setItem(KUNCI_STORAGE, JSON.stringify(semuaKarya));
+
+    // Perbarui tampilan galeri
+    tampilkanSemuaKarya();
+  }
+
+  // --- 9. TAMPILKAN KARYA SAAT HALAMAN PERTAMA KALI DIBUKA ---
+  tampilkanSemuaKarya();
+  
 });
