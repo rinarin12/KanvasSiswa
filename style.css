@@ -22,14 +22,14 @@ body {
 
 header {
   text-align: center;
-  border-bottom: 2px solid #AEC6CF; 
+  border-bottom: 2px solid #AAC4F5; 
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
 header h1 {
   margin: 0;
-  color: #607D8B;
+  color: #AAC4F5;
 }
 
 /* Navigasi / Tab */
@@ -42,9 +42,9 @@ nav {
 .nav-button {
   padding: 10px 20px;
   font-size: 16px;
-  border: 1px solid #AEC6CF;
+  border: 1px solid #AAC4F5;
   background-color: #ffffff;
-  color: #AEC6CF;
+  color: #AAC4F5F;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -176,8 +176,7 @@ nav {
   border: 1px solid #ddd;
   border-radius: 8px;
   text-decoration: none;
-  /* DIUBAH: dari #333 menjadi biru */
-  color: #607D8B;
+  color: #AAC4F5B;
   transition: background-color 0.2s;
 }
 .link-belajar li a:hover {
