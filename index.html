@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KanvasSiswa - Galeri & Pojok Belajar</title>
-  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,79 +9,22 @@
     <header>
       <h1>🎨 KanvasSiswa</h1>
       <p>Karyaku, Jejak Belajarku untuk Indonesia Emas</p>
+
+      <div id="area-auth">
+        <button id="tombolLogin">Login dengan Google</button>
+        <div id="infoUser" style="display:none;">
+          <span id="namaUser"></span>
+          <button id="tombolLogout">Logout</button>
+        </div>
+      </div>
     </header>
 
-    <nav>
-      <button id="nav-galeri" class="nav-button active">Galeri Karya</button>
-      <button id="nav-belajar" class="nav-button">Pojok Belajar</button>
-    </nav>
+    </div>
 
-    <section id="page-galeri" class="page active">
-      <h2>Unggah Karyamu</h2>
-      <div class="input-area">
-        <label for="inputGambar">1. Pilih Foto Karyamu</label>
-        <input type="file" id="inputGambar" accept="image/*">
-        
-        <div id="area-preview">
-          <img id="previewGambar" src="#" alt="Preview Karyamu" style="display:none;">
-        </div>
-
-        <label for="inputRefleksi">2. Tulis Refleksi/Deskripsi</label>
-        <textarea id="inputRefleksi" placeholder="Tulis deskripsi karyamu di sini. Apa yang kamu pelajari saat membuatnya?"></textarea>
-        
-        <button id="tombolTambahKarya">Publikasikan Karya</button>
-      </div>
-
-      <hr>
-      <h2>Karya</h2>
-      <div id="daftarKarya" class="galeri-grid">
-        </div>
-    </section>
-
-    <section id="page-belajar" class="page">
-      <h2>Pojok Belajar</h2>
-      <p>Temukan sumber belajar keren di sini!</p>
-      
-      <ul class="link-belajar">
-        <li>
-          <a href="https://belajar.kemdikbud.go.id/" target="_blank">
-            <strong>Rumah Belajar</strong> - Portal Belajar Resmi Kemdikbud
-          </a>
-        </li>
-        <li>
-          <a href="https://id.khanacademy.org/" target="_blank">
-            <strong>Khan Academy</strong> - Belajar Matematika, Sains (GratIS)
-          </a>
-        </li>
-         <li>
-          <a href="https://www.zenius.net/" target="_blank">
-            <strong>Zenius</strong> - Video Materi Pelajaran SMA/SMK
-          </a>
-        </li>
-        <li>
-          <a href="https://www.w3schools.com" target="_blank">
-            <strong>W3Schools</strong> - (SMK) Belajar Koding
-          </a>
-        </li>
-        <li>
-          <a href="https://www.canva.com/id_id/belajar/" target="_blank">
-            <strong>Canva</strong> - (Umum) Belajar Desain untuk Presentasi/Poster
-          </a>
-        </li>
-        <li>
-          <a href="https://chat.openai.com/" target="_blank">
-            <strong>ChatGPT</strong> - Tanya Jawab & Brainstorming AI
-          </a>
-        </li>
-        <li>
-          <a href="https://gemini.google.com/" target="_blank">
-            <strong>Google Gemini</strong> - Bantuan & Asisten AI
-          </a>
-        </li>
-      </ul>
-    </section>
-
-  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
 
   <script src="script.js"></script>
 </body>
