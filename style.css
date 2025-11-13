@@ -1,13 +1,16 @@
 /* Styling Dasar */
 body {
   font-family: Arial, sans-serif;
+  
+  /* Background gradasi pink ke biru */
   background: linear-gradient(to bottom, #FFB6C1, #AEC6CF);
+  
   margin: 0;
   padding: 20px;
   min-height: 100vh;
   box-sizing: border-box; 
   
-  /* DIUBAH: Mengganti warna teks default */
+  /* Warna teks default diubah jadi biru */
   color: #607D8B;
 }
 
@@ -22,14 +25,14 @@ body {
 
 header {
   text-align: center;
-  border-bottom: 2px solid #AAC4F5; 
+  border-bottom: 2px solid #AEC6CF; 
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
 header h1 {
   margin: 0;
-  color: #AAC4F5;
+  color: #607D8B;
 }
 
 /* Navigasi / Tab */
@@ -42,9 +45,9 @@ nav {
 .nav-button {
   padding: 10px 20px;
   font-size: 16px;
-  border: 1px solid #AAC4F5;
+  border: 1px solid #AEC6CF;
   background-color: #ffffff;
-  color: #AAC4F5F;
+  color: #AEC6CF;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -69,8 +72,7 @@ nav {
 }
 .input-area label {
   font-weight: bold;
-  /* DIUBAH: Warna label sekarang diwarisi dari body */
-  /* color: #333; (baris ini dihapus) */
+  color: #607D8B; /* Warisi warna biru */
   margin-top: 10px;
 }
 .input-area input[type="file"],
@@ -103,8 +105,8 @@ nav {
 
 #tombolTambahKarya {
   padding: 12px 20px;
-  background-color: #FFB6C1;
-  color: white; /* Tetap putih agar kontras */
+  background-color: #FFB6C1; /* Soft pink */
+  color: white; 
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -114,7 +116,7 @@ nav {
   transition: background-color 0.2s;
 }
 #tombolTambahKarya:hover {
-  background-color: #DB7093;
+  background-color: #DB7093; /* Pink lebih gelap */
 }
 
 /* Grid Galeri */
@@ -143,8 +145,7 @@ nav {
   padding: 15px;
 }
 .kartu-karya .konten p {
-  /* DIUBAH: dari #555 menjadi biru */
-  color: #607D8B;
+  color: #607D8B; /* Warna teks biru */
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
@@ -154,7 +155,7 @@ nav {
   top: 10px;
   right: 10px;
   background-color: rgba(220, 53, 69, 0.8); 
-  color: white; /* Tetap putih agar kontras */
+  color: white; 
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -176,15 +177,15 @@ nav {
   border: 1px solid #ddd;
   border-radius: 8px;
   text-decoration: none;
-  color: #AAC4F5B;
+  color: #607D8B; /* Warna teks biru */
   transition: background-color 0.2s;
 }
 .link-belajar li a:hover {
   background-color: #e9ecef;
 }
 .link-belajar li a strong {
-  /* Tetap soft blue agar menonjol */
-  color: #AEC6CF;
+  /* DIUBAH: Disamakan dengan warna teks biru */
+  color: #607D8B; 
   display: block;
   font-size: 18px;
 }
