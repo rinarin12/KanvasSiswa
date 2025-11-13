@@ -1,17 +1,9 @@
 /* Styling Dasar */
 body {
   font-family: Arial, sans-serif;
-  
-  /* Background gradasi pink ke biru */
-  background: linear-gradient(to bottom, #FFB6C1, #AEC6CF);
-  
+  background-color: #f4f7f6;
   margin: 0;
   padding: 20px;
-  min-height: 100vh;
-  box-sizing: border-box; 
-  
-  /* Warna teks default diubah jadi biru */
-  color: #607D8B;
 }
 
 .container {
@@ -25,6 +17,7 @@ body {
 
 header {
   text-align: center;
+  /* DIUBAH: dari biru tua menjadi soft blue */
   border-bottom: 2px solid #AEC6CF; 
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -32,6 +25,7 @@ header {
 
 header h1 {
   margin: 0;
+  /* DIUBAH: dari biru tua menjadi biru yang lebih soft */
   color: #607D8B;
 }
 
@@ -45,6 +39,7 @@ nav {
 .nav-button {
   padding: 10px 20px;
   font-size: 16px;
+  /* DIUBAH: dari biru tua menjadi soft blue */
   border: 1px solid #AEC6CF;
   background-color: #ffffff;
   color: #AEC6CF;
@@ -52,6 +47,7 @@ nav {
   cursor: pointer;
 }
 .nav-button.active {
+  /* DIUBAH: dari biru tua menjadi soft blue */
   background-color: #AEC6CF;
   color: white;
 }
@@ -72,7 +68,7 @@ nav {
 }
 .input-area label {
   font-weight: bold;
-  color: #607D8B; /* Warisi warna biru */
+  color: #333;
   margin-top: 10px;
 }
 .input-area input[type="file"],
@@ -105,8 +101,9 @@ nav {
 
 #tombolTambahKarya {
   padding: 12px 20px;
-  background-color: #FFB6C1; /* Soft pink */
-  color: white; 
+  /* DIUBAH: dari hijau menjadi soft pink */
+  background-color: #FFB6C1;
+  color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -116,7 +113,8 @@ nav {
   transition: background-color 0.2s;
 }
 #tombolTambahKarya:hover {
-  background-color: #DB7093; /* Pink lebih gelap */
+  /* DIUBAH: menjadi pink yang lebih gelap */
+  background-color: #DB7093;
 }
 
 /* Grid Galeri */
@@ -145,7 +143,7 @@ nav {
   padding: 15px;
 }
 .kartu-karya .konten p {
-  color: #607D8B; /* Warna teks biru */
+  color: #555;
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
@@ -154,8 +152,9 @@ nav {
   position: absolute;
   top: 10px;
   right: 10px;
+  /* DIBIARKAN merah untuk usability */
   background-color: rgba(220, 53, 69, 0.8); 
-  color: white; 
+  color: white;
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -177,15 +176,15 @@ nav {
   border: 1px solid #ddd;
   border-radius: 8px;
   text-decoration: none;
-  color: #607D8B; /* Warna teks biru */
+  color: #333;
   transition: background-color 0.2s;
 }
 .link-belajar li a:hover {
   background-color: #e9ecef;
 }
 .link-belajar li a strong {
-  /* DIUBAH: Disamakan dengan warna teks biru */
-  color: #607D8B; 
+  /* DIUBAH: dari biru tua menjadi soft blue */
+  color: #AEC6CF;
   display: block;
   font-size: 18px;
 }
