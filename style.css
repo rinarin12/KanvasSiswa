@@ -1,191 +1,68 @@
-/* Styling Dasar */
-body {
-  font-family: Arial, sans-serif;
-  
-  /* Background gradasi pink ke biru */
-  background: linear-gradient(to bottom, #FFB6C1, #AEC6CF);
-  
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-  box-sizing: border-box; 
-  
-  /* Warna teks default diubah jadi biru */
-  color: #607D8B;
-}
+/* ... (CSS Anda yang sudah ada) ... */
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 30px;
-}
-
-header {
-  text-align: center;
-  border-bottom: 2px solid #AEC6CF; 
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-header h1 {
-  margin: 0;
-  color: #607D8B;
-}
-
-/* Navigasi / Tab */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.nav-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: 1px solid #AEC6CF;
-  background-color: #ffffff;
-  color: #AEC6CF;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.nav-button.active {
-  background-color: #AEC6CF;
-  color: white;
-}
-
-/* Logika Halaman (Sembunyikan yang tidak aktif) */
-.page {
-  display: none;
-}
-.page.active {
-  display: block;
-}
-
-/* Area Input Form */
-.input-area {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.input-area label {
-  font-weight: bold;
-  color: #607D8B; /* Warisi warna biru */
-  margin-top: 10px;
-}
-.input-area input[type="file"],
-.input-area textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
-  box-sizing: border-box;
-}
-.input-area textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/* Preview Gambar */
-#area-preview {
-  width: 100%;
-  text-align: center;
-}
-#previewGambar {
-  max-width: 100%;
-  max-height: 300px;
-  border-radius: 8px;
-  border: 1px dashed #ddd;
-  margin-top: 10px;
-  object-fit: cover;
-}
-
-#tombolTambahKarya {
-  padding: 12px 20px;
-  background-color: #FFB6C1; /* Soft pink */
-  color: white; 
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: background-color 0.2s;
-}
-#tombolTambahKarya:hover {
-  background-color: #DB7093; /* Pink lebih gelap */
-}
-
-/* Grid Galeri */
+/* Styling untuk galeri grid */
 .galeri-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* Kartu Karya */
+/* Styling untuk satu kartu karya */
 .kartu-karya {
-  background-color: #fafafa;
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   overflow: hidden;
-  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
+
 .kartu-karya img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
+  height: 200px; /* Atur tinggi gambar agar seragam */
+  object-fit: cover; /* Membuat gambar pas tanpa distorsi */
 }
-.kartu-karya .konten {
+
+.kartu-karya p {
   padding: 15px;
-}
-.kartu-karya .konten p {
-  color: #607D8B; /* Warna teks biru */
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  color: #333;
+  flex-grow: 1; /* Membuat teks mengisi ruang */
   margin: 0;
 }
-.tombol-hapus-karya {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(220, 53, 69, 0.8); 
-  color: white; 
+
+/* Styling untuk tombol hapus */
+.tombol-hapus {
+  background-color: #e74c3c; /* Warna merah */
+  color: white;
   border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  padding: 10px;
   cursor: pointer;
+  width: 100%;
   font-weight: bold;
 }
 
-/* Halaman Pojok Belajar */
-.link-belajar {
-  list-style-type: none;
-  padding: 0;
+.tombol-hapus:hover {
+  background-color: #c0392b;
 }
-.link-belajar li a {
-  display: block;
-  padding: 15px;
+
+/* Styling untuk Area Preview */
+#area-preview {
+  width: 100%;
+  margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
+  padding: 10px;
+  border: 2px dashed #ccc;
   border-radius: 8px;
-  text-decoration: none;
-  color: #607D8B; /* Warna teks biru */
-  transition: background-color 0.2s;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.link-belajar li a:hover {
-  background-color: #e9ecef;
-}
-.link-belajar li a strong {
-  /* DIUBAH: Disamakan dengan warna teks biru */
-  color: #607D8B; 
-  display: block;
-  font-size: 18px;
+
+#previewGambar {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
 }
