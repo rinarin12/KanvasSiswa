@@ -1,13 +1,14 @@
+/* Styling Dasar */
 body {
   font-family: Arial, sans-serif;
-
-  /* Ini bagian penting untuk gradasi */
   background: linear-gradient(to bottom, #FFB6C1, #AEC6CF);
-
   margin: 0;
   padding: 20px;
   min-height: 100vh;
   box-sizing: border-box; 
+  
+  /* DIUBAH: Mengganti warna teks default */
+  color: #607D8B;
 }
 
 .container {
@@ -21,7 +22,6 @@ body {
 
 header {
   text-align: center;
-  /* DIUBAH: border soft blue */
   border-bottom: 2px solid #AEC6CF; 
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -29,7 +29,6 @@ header {
 
 header h1 {
   margin: 0;
-  /* DIUBAH: warna judul soft blue */
   color: #607D8B;
 }
 
@@ -43,7 +42,6 @@ nav {
 .nav-button {
   padding: 10px 20px;
   font-size: 16px;
-  /* DIUBAH: border soft blue */
   border: 1px solid #AEC6CF;
   background-color: #ffffff;
   color: #AEC6CF;
@@ -51,7 +49,6 @@ nav {
   cursor: pointer;
 }
 .nav-button.active {
-  /* DIUBAH: background tombol soft blue */
   background-color: #AEC6CF;
   color: white;
 }
@@ -72,7 +69,8 @@ nav {
 }
 .input-area label {
   font-weight: bold;
-  color: #333;
+  /* DIUBAH: Warna label sekarang diwarisi dari body */
+  /* color: #333; (baris ini dihapus) */
   margin-top: 10px;
 }
 .input-area input[type="file"],
@@ -105,9 +103,8 @@ nav {
 
 #tombolTambahKarya {
   padding: 12px 20px;
-  /* DIUBAH: background soft pink */
   background-color: #FFB6C1;
-  color: white;
+  color: white; /* Tetap putih agar kontras */
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -117,7 +114,6 @@ nav {
   transition: background-color 0.2s;
 }
 #tombolTambahKarya:hover {
-  /* DIUBAH: pink lebih gelap */
   background-color: #DB7093;
 }
 
@@ -147,7 +143,8 @@ nav {
   padding: 15px;
 }
 .kartu-karya .konten p {
-  color: #555;
+  /* DIUBAH: dari #555 menjadi biru */
+  color: #607D8B;
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
@@ -157,7 +154,7 @@ nav {
   top: 10px;
   right: 10px;
   background-color: rgba(220, 53, 69, 0.8); 
-  color: white;
+  color: white; /* Tetap putih agar kontras */
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -179,14 +176,15 @@ nav {
   border: 1px solid #ddd;
   border-radius: 8px;
   text-decoration: none;
-  color: #333;
+  /* DIUBAH: dari #333 menjadi biru */
+  color: #607D8B;
   transition: background-color 0.2s;
 }
 .link-belajar li a:hover {
   background-color: #e9ecef;
 }
 .link-belajar li a strong {
-  /* DIUBAH: warna link soft blue */
+  /* Tetap soft blue agar menonjol */
   color: #AEC6CF;
   display: block;
   font-size: 18px;
