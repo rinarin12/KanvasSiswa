@@ -9,6 +9,9 @@ body {
   /* DIUBAH: Background jadi warna krem */
   background-color: #FFFBEB;
   
+  /* DITAMBAH: Background pattern "emot-emot" lucu! */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext x='15' y='25' style='font: 20px sans-serif; fill: %23FFA1A1; opacity: 0.3;'%3E*%3C/text%3E%3Ctext x='50' y='60' style='font: 15px sans-serif; fill: %23AEC6CF; opacity: 0.3;'%3E+%3C/text%3E%3C/svg%3E");
+  
   margin: 0;
   padding: 20px;
   min-height: 100vh;
