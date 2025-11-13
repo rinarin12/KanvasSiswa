@@ -1,9 +1,16 @@
 /* Styling Dasar */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f7f6;
+  
+  /* DIUBAH: Latar belakang gradasi pink ke biru */
+  background: linear-gradient(to bottom, #FFB6C1, #AEC6CF);
+  
   margin: 0;
   padding: 20px;
+  
+  /* DITAMBAH: agar gradasi mengisi seluruh halaman */
+  min-height: 100vh;
+  box-sizing: border-box; 
 }
 
 .container {
@@ -17,7 +24,7 @@ body {
 
 header {
   text-align: center;
-  /* DIUBAH: dari biru tua menjadi soft blue */
+  /* DIUBAH: border soft blue */
   border-bottom: 2px solid #AEC6CF; 
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -25,7 +32,7 @@ header {
 
 header h1 {
   margin: 0;
-  /* DIUBAH: dari biru tua menjadi biru yang lebih soft */
+  /* DIUBAH: warna judul soft blue */
   color: #607D8B;
 }
 
@@ -39,7 +46,7 @@ nav {
 .nav-button {
   padding: 10px 20px;
   font-size: 16px;
-  /* DIUBAH: dari biru tua menjadi soft blue */
+  /* DIUBAH: border soft blue */
   border: 1px solid #AEC6CF;
   background-color: #ffffff;
   color: #AEC6CF;
@@ -47,7 +54,7 @@ nav {
   cursor: pointer;
 }
 .nav-button.active {
-  /* DIUBAH: dari biru tua menjadi soft blue */
+  /* DIUBAH: background tombol soft blue */
   background-color: #AEC6CF;
   color: white;
 }
@@ -101,7 +108,7 @@ nav {
 
 #tombolTambahKarya {
   padding: 12px 20px;
-  /* DIUBAH: dari hijau menjadi soft pink */
+  /* DIUBAH: background soft pink */
   background-color: #FFB6C1;
   color: white;
   border: none;
@@ -113,7 +120,7 @@ nav {
   transition: background-color 0.2s;
 }
 #tombolTambahKarya:hover {
-  /* DIUBAH: menjadi pink yang lebih gelap */
+  /* DIUBAH: pink lebih gelap */
   background-color: #DB7093;
 }
 
@@ -152,7 +159,6 @@ nav {
   position: absolute;
   top: 10px;
   right: 10px;
-  /* DIBIARKAN merah untuk usability */
   background-color: rgba(220, 53, 69, 0.8); 
   color: white;
   border: none;
@@ -183,7 +189,7 @@ nav {
   background-color: #e9ecef;
 }
 .link-belajar li a strong {
-  /* DIUBAH: dari biru tua menjadi soft blue */
+  /* DIUBAH: warna link soft blue */
   color: #AEC6CF;
   display: block;
   font-size: 18px;
